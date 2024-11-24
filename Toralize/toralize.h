@@ -13,10 +13,10 @@
 
 struct proxy_request
 {
-	int8_t vn;
-	int8_t cd;
-	int16_t dstport;
-	int32_t dstip;
+	uint8_t vn;
+	uint8_t cd;
+	uint16_t dstport;
+	uint32_t dstip;
 	unsigned char userid[8];
 };
 
@@ -24,10 +24,10 @@ typedef struct proxy_request Req;
 
 struct proxy_response
 {
-	int8_t vn;
-	int8_t cd;
-	int16_t _;
-	int32_t __;
+	uint8_t vn;
+	uint8_t cd;
+	uint16_t _;
+	uint32_t __;
 };
 
 typedef struct proxy_response Res;
