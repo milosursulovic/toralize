@@ -1,23 +1,22 @@
 #pragma once
 
+#include <winsock2.h>
+#include <ws2tcpip.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include <stdint.h>
 
 #define PROXY		"127.0.0.1"
 #define PROXYPORT	9050
 
-typedef unsigned char int8;
-typedef unsigned short int int16;
-typedef unsigned int int32;
-
 struct proxy_request
 {
-	int8 vn;
-	int8 cd;
-	int16 dstport;
-	int32 dstip;
+	int8_t vn;
+	int8_t cd;
+	int16_t dstport;
+	int32_t dstip;
 	unsigned char userid[8];
 };
 
@@ -25,10 +24,10 @@ typedef struct proxy_request Req;
 
 struct proxy_response
 {
-	int8 vn;
-	int8 cd;
-	int16 _;
-	int32 __;
+	int8_t vn;
+	int8_t cd;
+	int16_t _;
+	int32_t __;
 };
 
 typedef struct proxy_response Res;

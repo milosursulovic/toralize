@@ -1,1 +1,70 @@
+# Visual Studio-specific files
 .vs/
+.vscode/
+*.vcxproj.user
+*.vcxproj.filters
+*.suo
+*.ncb
+*.sdf
+*.opendb
+*.VC.db
+ipch/
+*.aps
+*.ilk
+*.log
+*.pch
+*.obj
+*.tlb
+*.tli
+*.tmp
+*.idb
+
+# Build results
+*.exe
+*.dll
+*.lib
+*.exp
+*.pdb
+
+# Temporary files
+*.log
+*.tlog
+*.lastbuildstate
+
+# Precompiled headers
+*.iobj
+*.ipdb
+
+# Build directories
+[Bb]uild/
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+
+# CMake build directories
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Testing/
+
+# Package files
+*.nuget/
+*.nupkg
+packages/
+
+# Windows-specific files
+Thumbs.db
+desktop.ini
+
+# Backup and archive files
+*.bak
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Custom excludes
+# Add custom rules here if you have additional files or folders you want to exclude
