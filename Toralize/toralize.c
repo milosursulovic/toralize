@@ -1,11 +1,30 @@
 #include "toralize.h"
 
-int main(int argc, char* argv[])
+Req* request(const char* dstip, const int dstport)
+{
+	Req* req = malloc(REQSIZE);
+	if (req == NULL)
+	{
+		fprintf(stderr, "Memory allocation failed\n");
+		return NULL;
+	}
+
+	req->vn = 4;
+	req->cd = 1;
+	req->dstport = htons(dstport);
+	req->dstip = inet_addr(dstip);
+	strncpy(req->userid, USERNAME, 8);
+
+	return req;
+}
+
+int main(int argc, char** argv)
 {
 	char* host;
 	int port, s;
 	struct sockaddr_in sock;
 	WSADATA wsaData;
+	Req* req;
 
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 	{
@@ -52,6 +71,18 @@ int main(int argc, char* argv[])
 	}
 
 	printf("Connected to proxy\n");
+
+	req = request(host, port);
+
+	if (send(s, (const char*)req, REQSIZE, 0) == SOCKET_ERROR)
+	{
+		perror("send failed");
+		closesocket(s);
+		WSACleanup();
+		free(req);
+		return -1;
+	}
+
 	closesocket(s);
 	WSACleanup();
 
